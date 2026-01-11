@@ -3,8 +3,7 @@ version: "3.8"
 services:
   db:
     image: dbimage
-    networks:
-      - mynet1
+    networks: [mynet1]
     ports:
       - "3306:3306"
     deploy:
@@ -15,8 +14,7 @@ services:
 
   auth_service:
     image: authimage
-    networks:
-      - mynet1
+    networks: [mynet1]
     ports:
       - "5001:5001"
     deploy:
@@ -24,8 +22,7 @@ services:
 
   book_service:
     image: bookimage
-    networks:
-      - mynet1
+    networks: [mynet1]
     ports:
       - "5002:5002"
     deploy:
@@ -33,8 +30,7 @@ services:
 
   borrow_service:
     image: borrowimage
-    networks:
-      - mynet1
+    networks: [mynet1]
     ports:
       - "5003:5003"
     deploy:
@@ -42,8 +38,7 @@ services:
 
   frontend:
     image: frontendimage
-    networks:
-      - mynet1
+    networks: [mynet1]
     ports:
       - "5000:5000"
     deploy:
