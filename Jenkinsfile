@@ -68,7 +68,7 @@ pipeline {
                 <p><b>Build:</b> ${env.BUILD_NUMBER}</p>
                 <p><b>URL:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
             """,
-            to: "yourmail@gmail.com",
+            to: "agrr7989@gmail.com",
             mimeType: 'text/html'
         )
     }
