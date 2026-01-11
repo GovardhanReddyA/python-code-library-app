@@ -58,16 +58,35 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            echo "✅ Pipeline completed successfully"
-        }
-        failure {
-            echo "❌ Pipeline failed"
-        }
-        always {
-            echo "📦 Pipeline finished"
-        }
+   post {
+    success {
+        emailext(
+            subject: "SUCCESS: Job ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+                <h2>Build Successful</h2>
+                <p><b>Job:</b> ${env.JOB_NAME}</p>
+                <p><b>Build:</b> ${env.BUILD_NUMBER}</p>
+                <p><b>URL:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+            """,
+            to: "yourmail@gmail.com",
+            mimeType: 'text/html'
+        )
     }
+
+    failure {
+        emailext(
+            subject: "FAILED: Job ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+                <h2>Build Failed</h2>
+                <p><b>Job:</b> ${env.JOB_NAME}</p>
+                <p><b>Build:</b> ${env.BUILD_NUMBER}</p>
+                <p><b>Check Console:</b> <a href="${env.BUILD_URL}console">${env.BUILD_URL}console</a></p>
+            """,
+            to: "agrr7989@gmail.com",
+            mimeType: 'text/html'
+        )
+    }
+}
+
 }
 
