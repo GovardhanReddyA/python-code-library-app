@@ -29,7 +29,7 @@ services:
       replicas: 3
 
   borrow_service:
-     image: govardhan7989/python:borrow
+    image: govardhan7989/python:borrow   # ← indentation fixed here
     networks: [mynet1]
     ports:
       - "5003:5003"
