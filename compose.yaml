@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   db:
-    image: dbimage
+    image: govardhan7989/python:db
     networks: [mynet1]
     ports:
       - "3306:3306"
@@ -13,7 +13,7 @@ services:
           - node.role == manager
 
   auth_service:
-    image: authimage
+    image: govardhan7989/python:auth
     networks: [mynet1]
     ports:
       - "5001:5001"
@@ -21,7 +21,7 @@ services:
       replicas: 3
 
   book_service:
-    image: bookimage
+    image: govardhan7989/python:book
     networks: [mynet1]
     ports:
       - "5002:5002"
@@ -29,7 +29,7 @@ services:
       replicas: 3
 
   borrow_service:
-    image: borrowimage
+     image: govardhan7989/python:borrow
     networks: [mynet1]
     ports:
       - "5003:5003"
@@ -37,7 +37,7 @@ services:
       replicas: 3
 
   frontend:
-    image: frontendimage
+    image: govardhan7989/python:frontend
     networks: [mynet1]
     ports:
       - "5000:5000"
