@@ -1,13 +1,13 @@
 ---
 services:
   db:
-    image: shaikmustafa/flm2026:dbimage
+    image: govardhan7989/project:dbimage
     ports:
       - "3306:3306"
     deploy:
       replicas: 1
   auth_service:
-    image: shaikmustafa/flm2026:authimage
+    image: govardhan7989/project:authimage
     ports:
       - "5001:5001"
     deploy:
@@ -15,7 +15,7 @@ services:
     depends_on:
       - db
   book_service:
-    image: shaikmustafa/flm2026:bookimage
+    image: govardhan7989/project:bookimage
     ports:
       - "5002:5002"
     deploy:
@@ -23,7 +23,7 @@ services:
     depends_on:
       - db
   borrow_service:
-    image: shaikmustafa/flm2026:borrowimage
+    image: govardhan7989/project:borrowimage
     ports:
       - "5003:5003"
     deploy:
@@ -31,7 +31,7 @@ services:
     depends_on:
       - db
   app_service:
-    image: shaikmustafa/flm2026:appimage
+    image: govardhan7989/project:appimage
     ports:
       - "5000:5000"
     deploy:
